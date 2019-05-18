@@ -5,12 +5,12 @@
         <v-flex xs12 sm8 md6>
           <v-card class="elevation-12">
             <v-toolbar dark color="teal">
-              <v-toolbar-title>Register</v-toolbar-title>
+              <v-toolbar-title>Login</v-toolbar-title>
               <v-spacer></v-spacer>
             </v-toolbar>
             <v-card-text>
               <v-form>
-                <v-text-field v-model="email" name="email" label="E-Mail" type="text"></v-text-field>
+                <v-text-field v-model="email" name="email" label="E-Mail" type="email"></v-text-field>
                 <v-text-field v-model="password" id="password" name="password" label="Password" type="password"></v-text-field>
               </v-form>
             </v-card-text>
@@ -18,7 +18,7 @@
             <br>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn @click="register" dark color="teal">Register</v-btn>
+              <v-btn @click="login" dark color="teal">Login</v-btn>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -39,9 +39,9 @@ export default {
     }
   },
   methods: {
-    async register () {
+    async login () {
       try {
-        const response = await AuthenticationService.register({
+        const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
@@ -56,7 +56,4 @@ export default {
 </script>
 
 <style scoped>
-  .error {
-    color: red;
-  }
 </style>
