@@ -3,11 +3,7 @@
     <v-container fluid fill-height>
       <v-layout align-center justify-center>
         <v-flex xs12 sm8 md6>
-          <v-card class="elevation-12">
-            <v-toolbar dark color="teal">
-              <v-toolbar-title>Register</v-toolbar-title>
-              <v-spacer></v-spacer>
-            </v-toolbar>
+          <panel title="Register">
             <v-card-text>
               <v-form>
                 <v-text-field v-model="email" name="email" label="E-Mail" type="text"></v-text-field>
@@ -20,15 +16,16 @@
               <v-spacer></v-spacer>
               <v-btn @click="register" dark color="teal">Register</v-btn>
             </v-card-actions>
-          </v-card>
+          </panel>
         </v-flex>
       </v-layout>
     </v-container>
-</v-content>
+  </v-content>
 </template>
 
 <script>
 import AuthenticationService from '../services/AuthenticationService'
+import Panel from '@/components/Panel'
 
 export default {
   data () {
@@ -37,6 +34,9 @@ export default {
       password: '',
       error: null
     }
+  },
+  components: {
+    Panel
   },
   methods: {
     async register () {
