@@ -3,7 +3,9 @@
     <v-toolbar dark color="teal">
       <v-toolbar-title>{{ title }}</v-toolbar-title>
       <v-spacer></v-spacer>
+      <slot name="action" />
     </v-toolbar>
+
     <v-card-text>
         <slot>
           No slot content defined.
